@@ -102,7 +102,27 @@ h1 { font-size: clamp(2.15rem, 5.25vw, 3.35rem); font-weight: 850; line-height: 
   padding-bottom: 7px;
   border-bottom: 1px solid #24578445;
 }
+.reminder-heading h2,
+.intro-copy h1 span {
+  --title-outline: #b73d72;
+  --title-outline-radius: 2.5px;
+  --title-outline-diagonal: 1.75px;
+  --title-outline-back: calc(0px - var(--title-outline-radius));
+  --title-outline-diagonal-back: calc(0px - var(--title-outline-diagonal));
+  /* Paint the outline behind the letters on browsers that ignore HTML paint order. */
+  text-shadow:
+    var(--title-outline-radius) 0 var(--title-outline),
+    var(--title-outline-back) 0 var(--title-outline),
+    0 var(--title-outline-radius) var(--title-outline),
+    0 var(--title-outline-back) var(--title-outline),
+    var(--title-outline-diagonal) var(--title-outline-diagonal) var(--title-outline),
+    var(--title-outline-diagonal-back) var(--title-outline-diagonal) var(--title-outline),
+    var(--title-outline-diagonal) var(--title-outline-diagonal-back) var(--title-outline),
+    var(--title-outline-diagonal-back) var(--title-outline-diagonal-back) var(--title-outline);
+}
 .reminder-heading h2 {
+  --title-outline-radius: .085em;
+  --title-outline-diagonal: .06em;
   position: absolute;
   top: 2px;
   left: 50%;
@@ -112,9 +132,6 @@ h1 { font-size: clamp(2.15rem, 5.25vw, 3.35rem); font-weight: 850; line-height: 
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: .025em;
-  text-shadow: 0 2px #842657;
-  -webkit-text-stroke: .17em #b73d72;
-  paint-order: stroke fill;
   white-space: nowrap;
 }
 .reminder-heading h2::before,
@@ -256,7 +273,7 @@ h1 { font-size: clamp(2.15rem, 5.25vw, 3.35rem); font-weight: 850; line-height: 
 .footer { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; margin-top: 21px; border-top: 1px solid #689ac85c; padding-block: 14px 22px; font-size: .79rem; line-height: 1.55; color: #b0c8e2; }
 .footer a { color: #b3e3fb; text-underline-offset: 3px; font-weight: 700; }
 .footer-copy, .footer-links { display: grid; gap: 5px; min-width: 0; }
-.footer-links { justify-items: end; margin-inline-start: auto; text-align: end; }
+.footer-links { justify-items: end; margin-left: auto; margin-inline-start: auto; text-align: end; }
 .footer-credit { color: #d9ebff; }
 .sr-only { clip-path: inset(50%); position: absolute; overflow: hidden; width: 1px; height: 1px; white-space: nowrap; }
 
@@ -276,6 +293,20 @@ h1 { font-size: clamp(2.15rem, 5.25vw, 3.35rem); font-weight: 850; line-height: 
   .panel-content { overflow: visible; }
   .route-controls { gap: 8px; margin-bottom: 10px; }
   .route-tabs button { padding: 6px 8px; min-height: 39px; }
+  .footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-gap: 10px;
+    text-align: center;
+  }
+  .footer-mobile-break { display: inline; }
+  .footer-desktop-comma { display: none; }
+  .footer-links {
+    justify-items: center;
+    margin-left: 0;
+    margin-inline-start: 0;
+    text-align: center;
+  }
 }
 @media (max-width: 540px) {
   .reminder-heading { padding-bottom: 5px; }
@@ -1222,9 +1253,8 @@ h1 { font-size: clamp(2.15rem, 5.25vw, 3.35rem); font-weight: 850; line-height: 
 }
 
 .intro-copy h1 span {
+  --title-outline: #b74782;
   color: #fff6fb;
-  -webkit-text-stroke: 5px #b74782;
-  paint-order: stroke fill;
 }
 
 .hero-dates {
@@ -1267,7 +1297,7 @@ h1 { font-size: clamp(2.15rem, 5.25vw, 3.35rem); font-weight: 850; line-height: 
   .intro-copy::after { top: 7px; right: 33%; width: 9px; height: 13px; }
   .intro-copy .eyebrow { margin-bottom: 7px; font-size: .75rem; }
   .intro-copy h1 { font-size: clamp(1.67rem, 8.2vw, 2.2rem); }
-  .intro-copy h1 span { -webkit-text-stroke-width: 3px; }
+  .intro-copy h1 span { --title-outline-radius: 1.5px; --title-outline-diagonal: 1.06px; }
   .hero-dates { margin-top: 9px; padding: 3px 8px; font-size: .76rem; }
 }
 
