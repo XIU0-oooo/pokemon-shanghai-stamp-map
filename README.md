@@ -1,8 +1,8 @@
-# 上海集章路线图
+# 宝可梦上海盛典集章路线图
 
 宝可梦 30 周年上海盛典的免费集章工具。活动时间为 2026 年 11 月 28 日至 2027 年 1 月 3 日，各项活动的开放和截止日期可在日历查看。
 
-[打开集章路线图](https://xiu0-oooo.github.io/shanghai-stamp-map/)
+[打开集章路线图](https://xiu0-oooo.github.io/pokemon-shanghai-stamp-map/)
 
 ## 使用方法
 
